@@ -1,0 +1,26 @@
+# Rust
+/target/
+**/*.rs.bk
+
+# Build output
+/releases
+
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Misc
+.env
+*.log
+
+# Old files
+/pdisplay-old/

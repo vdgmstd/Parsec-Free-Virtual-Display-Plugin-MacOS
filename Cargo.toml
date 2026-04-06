@@ -1,0 +1,48 @@
+[package]
+name = "macos-parsec-free-vdisplay"
+version = "0.4.1"
+edition = "2021"
+description = "Virtual display manager for Parsec on macOS"
+authors = ["vdgmstd"]
+license = "MIT"
+
+[dependencies]
+# Dioxus - UI framework
+dioxus = { version = "0.6", features = ["desktop"] }
+
+# System tray (temporarily disabled - conflicts with Dioxus)
+# tray-icon = "0.19"
+# muda = "0.15"
+
+# File watching (for Parsec logs)
+notify = "8.0"
+notify-debouncer-mini = "0.6"
+
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# Serialization (settings)
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# macOS specific
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = "0.6"
+objc2-foundation = "0.3"
+objc2-app-kit = "0.3"
+core-graphics = "0.24"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Utilities
+dirs = "6.0"
+anyhow = "1.0"
+toml = "0.8"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true

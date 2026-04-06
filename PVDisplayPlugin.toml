@@ -1,0 +1,26 @@
+[application]
+name = "Parsec Free Virtual Display Plugin MacOs"
+version = "0.4.2a"
+default_platform = "desktop"
+out_dir = "releases"
+asset_dir = "assets"
+
+[desktop]
+min_width = 450
+min_height = 570
+width = 450
+height = 570
+resizable = false
+visible = true
+
+[bundle]
+identifier = "com.vdgmstd.parsec-vdisplay"
+publisher = "vdgmstd"
+icon = ["assets/icon.png"]
+category = "Utility"
+short_description = "Virtual display manager for Parsec"
+long_description = "Automatically creates and destroys virtual displays when Parsec clients connect/disconnect"
+
+[bundle.macos]
+minimum_system_version = "11.0"
+frameworks = ["CoreGraphics", "AppKit"]
